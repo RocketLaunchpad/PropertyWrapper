@@ -1,4 +1,8 @@
 # RIWrapper
 
-Generated from [FrameworkTemplate](https://github.com/pwc3/FrameworkTemplate) on 2020-04-05.
+To install, add the following to your `Podfile`:
+
+```
+pod 'RIWrapper', :git => 'https://github.com/RocketLaunchpad/RIWrapper.git', :branch => 'master'
+```
 
