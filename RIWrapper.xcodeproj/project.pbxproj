@@ -26,6 +26,8 @@
 		C5F963C0243AC8ED0099A6A0 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F963BF243AC8EC0099A6A0 /* MapTests.swift */; };
 		C66B9836243ACFB800B8C7B7 /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B9835243ACFB800B8C7B7 /* Redirect.swift */; };
 		C66B984A243B7CAC00B8C7B7 /* APIMisuseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B9849243B7CAC00B8C7B7 /* APIMisuseTests.swift */; };
+		C66B984E243B8B5C00B8C7B7 /* RedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B984D243B8B5C00B8C7B7 /* RedirectTests.swift */; };
+		C66B9850243B8C2B00B8C7B7 /* BoxableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B984F243B8C2B00B8C7B7 /* BoxableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		C5F963BF243AC8EC0099A6A0 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		C66B9835243ACFB800B8C7B7 /* Redirect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
 		C66B9849243B7CAC00B8C7B7 /* APIMisuseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMisuseTests.swift; sourceTree = "<group>"; };
+		C66B984D243B8B5C00B8C7B7 /* RedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectTests.swift; sourceTree = "<group>"; };
+		C66B984F243B8C2B00B8C7B7 /* BoxableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,10 +139,12 @@
 		C52A634022F71EB900A0F7BA /* RIWrapperTests */ = {
 			isa = PBXGroup;
 			children = (
+				C66B9849243B7CAC00B8C7B7 /* APIMisuseTests.swift */,
+				C66B984F243B8C2B00B8C7B7 /* BoxableTests.swift */,
 				C5DCD84C243AC665002481E7 /* BoxTests.swift */,
 				C52A634322F71EB900A0F7BA /* Info.plist */,
 				C5F963BF243AC8EC0099A6A0 /* MapTests.swift */,
-				C66B9849243B7CAC00B8C7B7 /* APIMisuseTests.swift */,
+				C66B984D243B8B5C00B8C7B7 /* RedirectTests.swift */,
 			);
 			path = RIWrapperTests;
 			sourceTree = "<group>";
@@ -377,7 +383,9 @@
 			files = (
 				C66B984A243B7CAC00B8C7B7 /* APIMisuseTests.swift in Sources */,
 				C5F963C0243AC8ED0099A6A0 /* MapTests.swift in Sources */,
+				C66B9850243B8C2B00B8C7B7 /* BoxableTests.swift in Sources */,
 				C5DCD84D243AC665002481E7 /* BoxTests.swift in Sources */,
+				C66B984E243B8B5C00B8C7B7 /* RedirectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
