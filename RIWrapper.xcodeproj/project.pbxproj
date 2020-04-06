@@ -24,6 +24,7 @@
 		C5DCD84D243AC665002481E7 /* BoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD84C243AC665002481E7 /* BoxTests.swift */; };
 		C5DCD850243AC702002481E7 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD84F243AC702002481E7 /* Map.swift */; };
 		C5F963C0243AC8ED0099A6A0 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F963BF243AC8EC0099A6A0 /* MapTests.swift */; };
+		C66B9836243ACFB800B8C7B7 /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B9835243ACFB800B8C7B7 /* Redirect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		C5DCD84C243AC665002481E7 /* BoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxTests.swift; sourceTree = "<group>"; };
 		C5DCD84F243AC702002481E7 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		C5F963BF243AC8EC0099A6A0 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
+		C66B9835243ACFB800B8C7B7 /* Redirect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				C5DCD84F243AC702002481E7 /* Map.swift */,
+				C66B9835243ACFB800B8C7B7 /* Redirect.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				C5DCD840243AC4C2002481E7 /* Property.swift in Sources */,
 				C5DCD846243AC4E2002481E7 /* OptionalBox.swift in Sources */,
 				C5DCD83E243AC4B1002481E7 /* Wrapper.swift in Sources */,
+				C66B9836243ACFB800B8C7B7 /* Redirect.swift in Sources */,
 				C5DCD850243AC702002481E7 /* Map.swift in Sources */,
 				C5DCD849243AC4F2002481E7 /* Boxable.swift in Sources */,
 			);
