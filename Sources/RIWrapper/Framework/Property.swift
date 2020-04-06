@@ -27,5 +27,5 @@ import Foundation
 
 public class Property<WrappedType> {
 
-    var owner: Wrapper<WrappedType>! = nil
+    unowned var owner: Wrapper<WrappedType>! = nil
 }

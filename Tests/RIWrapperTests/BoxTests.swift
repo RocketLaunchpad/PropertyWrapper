@@ -92,4 +92,8 @@ class BoxTests: XCTestCase {
         XCTAssertEqual(88, wrapper.mutableDefaultInt)
         XCTAssertEqual(NSNumber(value: 88), wrapped.mutableDefaultInt)
     }
+
+    static override func tearDown() {
+        super.tearDown()
+    }
 }
