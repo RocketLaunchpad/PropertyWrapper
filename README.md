@@ -226,6 +226,10 @@ The library provides the following property wrappers to simplify the creation of
     - `@Redirect(_ keyPath: KeyPath<WrappedType, ValueType>)` is a special case of the `Map` property wrapper, providing an identity transform of `{ $0 }` as its block argument.
     - `@MutableRedirect(_ keyPath: WritableKeyPath<WrappedType, ValueType>)` is a special case of the `MutableMap` property wrapper, providing identity transforms of `{ $0 }` as the `get` and `set` block arguments.
 
+These property wrappers can only be used on instances of the `Wrapper<WrappedType>` class.
+
+Each property wrapper takes a key path. This is used to extract a value from the wrapped object of type `WrappedType`. In the case of `Box` property wrappers, the key path refers to a box type that can be unboxed to a `Boxable` type. The underlying property must conform to the `Boxable` protocol, and its associated `Boxable.BoxedType` must match the box type. For `Map` property wrappers, the key path refers to a property of the wrapped object of type `WrappedType`. This is the input to the `using` and `get` blocks as well as the output of the `set` block.
+
 ## Installation Instructions
 
 To install, add the following to your `Podfile`:
