@@ -22,6 +22,8 @@
 		C5DCD849243AC4F2002481E7 /* Boxable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD848243AC4F2002481E7 /* Boxable.swift */; };
 		C5DCD84B243AC4F8002481E7 /* NSNumber+Boxable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD84A243AC4F8002481E7 /* NSNumber+Boxable.swift */; };
 		C5DCD84D243AC665002481E7 /* BoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD84C243AC665002481E7 /* BoxTests.swift */; };
+		C5DCD850243AC702002481E7 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD84F243AC702002481E7 /* Map.swift */; };
+		C5F963C0243AC8ED0099A6A0 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F963BF243AC8EC0099A6A0 /* MapTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		C5DCD848243AC4F2002481E7 /* Boxable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boxable.swift; sourceTree = "<group>"; };
 		C5DCD84A243AC4F8002481E7 /* NSNumber+Boxable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber+Boxable.swift"; sourceTree = "<group>"; };
 		C5DCD84C243AC665002481E7 /* BoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxTests.swift; sourceTree = "<group>"; };
+		C5DCD84F243AC702002481E7 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C5F963BF243AC8EC0099A6A0 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 				C5DCD835243AC410002481E7 /* Box */,
 				C5DCD847243AC4EB002481E7 /* Boxable */,
 				C5DCD83C243AC445002481E7 /* Framework */,
+				C5DCD84E243AC6C4002481E7 /* Map */,
 				C52A633722F71EB900A0F7BA /* Info.plist */,
 				C52A633622F71EB900A0F7BA /* RIWrapper.h */,
 			);
@@ -128,6 +133,7 @@
 			children = (
 				C5DCD84C243AC665002481E7 /* BoxTests.swift */,
 				C52A634322F71EB900A0F7BA /* Info.plist */,
+				C5F963BF243AC8EC0099A6A0 /* MapTests.swift */,
 			);
 			path = RIWrapperTests;
 			sourceTree = "<group>";
@@ -195,6 +201,14 @@
 				C5DCD84A243AC4F8002481E7 /* NSNumber+Boxable.swift */,
 			);
 			path = Boxable;
+			sourceTree = "<group>";
+		};
+		C5DCD84E243AC6C4002481E7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C5DCD84F243AC702002481E7 /* Map.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +359,7 @@
 				C5DCD840243AC4C2002481E7 /* Property.swift in Sources */,
 				C5DCD846243AC4E2002481E7 /* OptionalBox.swift in Sources */,
 				C5DCD83E243AC4B1002481E7 /* Wrapper.swift in Sources */,
+				C5DCD850243AC702002481E7 /* Map.swift in Sources */,
 				C5DCD849243AC4F2002481E7 /* Boxable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F963C0243AC8ED0099A6A0 /* MapTests.swift in Sources */,
 				C5DCD84D243AC665002481E7 /* BoxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
