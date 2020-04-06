@@ -32,10 +32,14 @@ public class Map<WrappedType, StoredType, OutputType>: Property<WrappedType> {
 
     let transform: (StoredType) -> OutputType
 
-    public init(from keyPath: KeyPath<WrappedType, StoredType>, using transform: @escaping (StoredType) -> OutputType) {
+    public init(from keyPath: KeyPath<WrappedType, StoredType>,
+                using transform: @escaping (StoredType) -> OutputType,
+                _file: StaticString = #file,
+                _line: UInt = #line) {
+
         self.keyPath = keyPath
         self.transform = transform
-        super.init()
+        super.init(file: _file, line: _line)
     }
 
     public var wrappedValue: OutputType {
@@ -56,11 +60,14 @@ public class MutableMap<WrappedType, StoredType, OutputType>: Property<WrappedTy
 
     public init(from keyPath: WritableKeyPath<WrappedType, StoredType>,
                 get: @escaping (StoredType) -> OutputType,
-                set: @escaping (OutputType) -> StoredType) {
+                set: @escaping (OutputType) -> StoredType,
+                _file: StaticString = #file,
+                _line: UInt = #line) {
 
         self.keyPath = keyPath
         self.get = get
         self.set = set
+        super.init(file: _file, line: _line)
     }
 
     public var wrappedValue: OutputType {

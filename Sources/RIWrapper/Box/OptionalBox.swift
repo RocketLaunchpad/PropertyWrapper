@@ -30,9 +30,12 @@ public class OptionalBox<WrappedType, BoxedType, ValueType>: Property<WrappedTyp
 
     let keyPath: KeyPath<WrappedType, BoxedType?>
 
-    public init(_ keyPath: KeyPath<WrappedType, BoxedType?>) {
+    public init(_ keyPath: KeyPath<WrappedType, BoxedType?>,
+                _file: StaticString = #file,
+                _line: UInt = #line) {
+
         self.keyPath = keyPath
-        super.init()
+        super.init(file: _file, line: _line)
     }
 
     public var wrappedValue: ValueType? {
@@ -47,9 +50,12 @@ public class MutableOptionalBox<WrappedType, BoxedType, ValueType>: Property<Wra
 
     let keyPath: WritableKeyPath<WrappedType, BoxedType?>
 
-    public init(_ keyPath: WritableKeyPath<WrappedType, BoxedType?>) {
+    public init(_ keyPath: WritableKeyPath<WrappedType, BoxedType?>,
+                _file: StaticString = #file,
+                _line: UInt = #line) {
+
         self.keyPath = keyPath
-        super.init()
+        super.init(file: _file, line: _line)
     }
 
     public var wrappedValue: ValueType? {

@@ -1,4 +1,4 @@
-//
+    //
 //  Box.swift
 //  RIWrapper
 //
@@ -30,9 +30,12 @@ public class Box<WrappedType, BoxedType, ValueType>: Property<WrappedType> where
 
     let keyPath: KeyPath<WrappedType, BoxedType>
 
-    public init(_ keyPath: KeyPath<WrappedType, BoxedType>) {
+    public init(_ keyPath: KeyPath<WrappedType, BoxedType>,
+                _file: StaticString = #file,
+                _line: UInt = #line) {
+
         self.keyPath = keyPath
-        super.init()
+        super.init(file: _file, line: _line)
     }
 
     public var wrappedValue: ValueType {
@@ -47,9 +50,12 @@ public class MutableBox<WrappedType, BoxedType, ValueType>: Property<WrappedType
 
     let keyPath: WritableKeyPath<WrappedType, BoxedType>
 
-    public init(_ keyPath: WritableKeyPath<WrappedType, BoxedType>) {
+    public init(_ keyPath: WritableKeyPath<WrappedType, BoxedType>,
+                _file: StaticString = #file,
+                _line: UInt = #line) {
+
         self.keyPath = keyPath
-        super.init()
+        super.init(file: _file, line: _line)
     }
 
     public var wrappedValue: ValueType {

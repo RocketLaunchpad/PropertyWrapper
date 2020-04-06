@@ -28,8 +28,8 @@ import Foundation
 @propertyWrapper
 public class Redirect<WrappedType, ValueType>: Map<WrappedType, ValueType, ValueType> {
 
-    public init(_ keyPath: KeyPath<WrappedType, ValueType>) {
-        super.init(from: keyPath, using: { $0 })
+    public init(_ keyPath: KeyPath<WrappedType, ValueType>, _file: StaticString = #file, _line: UInt = #line) {
+        super.init(from: keyPath, using: { $0 }, _file: _file, _line: _line)
     }
 
     public override var wrappedValue: ValueType {
@@ -42,8 +42,8 @@ public class Redirect<WrappedType, ValueType>: Map<WrappedType, ValueType, Value
 @propertyWrapper
 public class MutableRedirect<WrappedType, ValueType>: MutableMap<WrappedType, ValueType, ValueType> {
 
-    public init(_ keyPath: WritableKeyPath<WrappedType, ValueType>) {
-        super.init(from: keyPath, get: { $0 }, set: { $0 })
+    public init(_ keyPath: WritableKeyPath<WrappedType, ValueType>, _file: StaticString = #file, _line: UInt = #line) {
+        super.init(from: keyPath, get: { $0 }, set: { $0 }, _file: _file, _line: _line)
     }
 
     public override var wrappedValue: ValueType {

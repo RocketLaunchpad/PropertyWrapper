@@ -32,10 +32,14 @@ public class DefaultBox<WrappedType, BoxedType, ValueType>: Property<WrappedType
 
     let defaultValue: ValueType
 
-    public init(_ keyPath: KeyPath<WrappedType, BoxedType?>, default defaultValue: ValueType) {
+    public init(_ keyPath: KeyPath<WrappedType, BoxedType?>,
+                default defaultValue: ValueType,
+                _file: StaticString = #file,
+                _line: UInt = #line) {
+
         self.keyPath = keyPath
         self.defaultValue = defaultValue
-        super.init()
+        super.init(file: _file, line: _line)
     }
 
     public var wrappedValue: ValueType {
@@ -52,10 +56,14 @@ public class MutableDefaultBox<WrappedType, BoxedType, ValueType>: Property<Wrap
 
     let defaultValue: ValueType
 
-    public init(_ keyPath: WritableKeyPath<WrappedType, BoxedType?>, default defaultValue: ValueType) {
+    public init(_ keyPath: WritableKeyPath<WrappedType, BoxedType?>,
+                default defaultValue: ValueType,
+                _file: StaticString = #file,
+                _line: UInt = #line) {
+
         self.keyPath = keyPath
         self.defaultValue = defaultValue
-        super.init()
+        super.init(file: _file, line: _line)
     }
 
     public var wrappedValue: ValueType {

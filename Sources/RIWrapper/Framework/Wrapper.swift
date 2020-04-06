@@ -41,9 +41,19 @@ open class Wrapper<WrappedType> {
     private func updateProperties() {
         let mirror = Mirror(reflecting: self)
         for (_, value) in mirror.children {
-            if let property = value as? Property<WrappedType> {
-                property.owner = self
+            // Use the PropertyMarker protocol to determine whether this child is a Property.
+            // We can't use Property with its parameterized type, or a protocol with an associated type here, because we want _any_ Property, not just
+            // properties that match our known WrappedType. This allows us to do the subsequent check.
+            guard let propertyMarker = value as? PropertyMarker else {
+                continue
             }
+
+            // We now know that value is a Property (because Property is the only type to implement PropertyMarker).
+            // Next, we check to make sure that the parameterized type of the property matches our parameterized type.
+            guard let property = propertyMarker as? Property<WrappedType> else {
+                fatalError("API MISUSE: The WrappedType parameter in \(propertyMarker.typeDescription) used at \(propertyMarker.usageLocation) does not match the WrappedType parameter in this Wrapper<\(type(of: wrapped))>. This can occur when a property wrapper uses a key path that refers to a type other than this Wrapper object's WrappedType.")
+            }
+            property.owner = self
         }
     }
 

@@ -25,7 +25,49 @@
 
 import Foundation
 
-public class Property<WrappedType> {
+// This is used by Wrapper to determine, without associated or parameterized types, whether an object is a Property.
+internal protocol PropertyMarker {
 
-    unowned var owner: Wrapper<WrappedType>! = nil
+    var file: StaticString { get }
+
+    var line: UInt { get }
+}
+
+extension PropertyMarker {
+
+    public var typeDescription: String {
+        "@\(type(of: self))"
+    }
+
+    public var usageLocation: String {
+        "\(file):\(line)"
+    }
+}
+
+public class Property<WrappedType>: PropertyMarker {
+
+    let file: StaticString
+
+    let line: UInt
+
+    private unowned var _owner: Wrapper<WrappedType>? = nil
+
+    public var owner: Wrapper<WrappedType> {
+        get {
+            guard let o = _owner else {
+                // This will occur if this Property was used in a class that does not extend Wrapper.
+                fatalError("API MISUSE: The property wrapper \(typeDescription) used at \(usageLocation) is not in a subclass of Wrapper.")
+            }
+            return o
+        }
+
+        set {
+            _owner = newValue
+        }
+    }
+
+    init(file: StaticString, line: UInt) {
+        self.file = file
+        self.line = line
+    }
 }
