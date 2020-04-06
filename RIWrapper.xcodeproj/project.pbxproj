@@ -3,19 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C52A633D22F71EB900A0F7BA /* RIWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A633322F71EB900A0F7BA /* RIWrapper.framework */; };
-		C52A634222F71EB900A0F7BA /* RIWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52A634122F71EB900A0F7BA /* RIWrapperTests.swift */; };
 		C52A634422F71EB900A0F7BA /* RIWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C52A633622F71EB900A0F7BA /* RIWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C52A635722F71F7800A0F7BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52A635622F71F7800A0F7BA /* AppDelegate.swift */; };
 		C52A635922F71F7800A0F7BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52A635822F71F7800A0F7BA /* ViewController.swift */; };
 		C52A635C22F71F7800A0F7BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52A635A22F71F7800A0F7BA /* Main.storyboard */; };
 		C52A635E22F71F7900A0F7BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52A635D22F71F7900A0F7BA /* Assets.xcassets */; };
 		C52A636122F71F7900A0F7BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52A635F22F71F7900A0F7BA /* LaunchScreen.storyboard */; };
-		C52A636822F71FD200A0F7BA /* RIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52A636722F71FD200A0F7BA /* RIWrapper.swift */; };
+		C5DCD83E243AC4B1002481E7 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD83D243AC4B1002481E7 /* Wrapper.swift */; };
+		C5DCD840243AC4C2002481E7 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD83F243AC4C2002481E7 /* Property.swift */; };
+		C5DCD842243AC4D0002481E7 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD841243AC4D0002481E7 /* Box.swift */; };
+		C5DCD844243AC4DD002481E7 /* DefaultBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD843243AC4DD002481E7 /* DefaultBox.swift */; };
+		C5DCD846243AC4E2002481E7 /* OptionalBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD845243AC4E2002481E7 /* OptionalBox.swift */; };
+		C5DCD849243AC4F2002481E7 /* Boxable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD848243AC4F2002481E7 /* Boxable.swift */; };
+		C5DCD84B243AC4F8002481E7 /* NSNumber+Boxable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD84A243AC4F8002481E7 /* NSNumber+Boxable.swift */; };
+		C5DCD84D243AC665002481E7 /* BoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DCD84C243AC665002481E7 /* BoxTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +39,6 @@
 		C52A633622F71EB900A0F7BA /* RIWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RIWrapper.h; sourceTree = "<group>"; };
 		C52A633722F71EB900A0F7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52A633C22F71EB900A0F7BA /* RIWrapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RIWrapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C52A634122F71EB900A0F7BA /* RIWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIWrapperTests.swift; sourceTree = "<group>"; };
 		C52A634322F71EB900A0F7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52A635422F71F7800A0F7BA /* RIWrapperExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RIWrapperExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52A635622F71F7800A0F7BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +47,14 @@
 		C52A635D22F71F7900A0F7BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C52A636022F71F7900A0F7BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C52A636222F71F7900A0F7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C52A636722F71FD200A0F7BA /* RIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIWrapper.swift; sourceTree = "<group>"; };
+		C5DCD83D243AC4B1002481E7 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
+		C5DCD83F243AC4C2002481E7 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		C5DCD841243AC4D0002481E7 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		C5DCD843243AC4DD002481E7 /* DefaultBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBox.swift; sourceTree = "<group>"; };
+		C5DCD845243AC4E2002481E7 /* OptionalBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalBox.swift; sourceTree = "<group>"; };
+		C5DCD848243AC4F2002481E7 /* Boxable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boxable.swift; sourceTree = "<group>"; };
+		C5DCD84A243AC4F8002481E7 /* NSNumber+Boxable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber+Boxable.swift"; sourceTree = "<group>"; };
+		C5DCD84C243AC665002481E7 /* BoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +114,11 @@
 		C52A633522F71EB900A0F7BA /* RIWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				C52A633622F71EB900A0F7BA /* RIWrapper.h */,
-				C52A636722F71FD200A0F7BA /* RIWrapper.swift */,
+				C5DCD835243AC410002481E7 /* Box */,
+				C5DCD847243AC4EB002481E7 /* Boxable */,
+				C5DCD83C243AC445002481E7 /* Framework */,
 				C52A633722F71EB900A0F7BA /* Info.plist */,
+				C52A633622F71EB900A0F7BA /* RIWrapper.h */,
 			);
 			path = RIWrapper;
 			sourceTree = "<group>";
@@ -112,7 +126,7 @@
 		C52A634022F71EB900A0F7BA /* RIWrapperTests */ = {
 			isa = PBXGroup;
 			children = (
-				C52A634122F71EB900A0F7BA /* RIWrapperTests.swift */,
+				C5DCD84C243AC665002481E7 /* BoxTests.swift */,
 				C52A634322F71EB900A0F7BA /* Info.plist */,
 			);
 			path = RIWrapperTests;
@@ -153,6 +167,34 @@
 				C52A635522F71F7800A0F7BA /* RIWrapperExample */,
 			);
 			path = Examples;
+			sourceTree = "<group>";
+		};
+		C5DCD835243AC410002481E7 /* Box */ = {
+			isa = PBXGroup;
+			children = (
+				C5DCD841243AC4D0002481E7 /* Box.swift */,
+				C5DCD843243AC4DD002481E7 /* DefaultBox.swift */,
+				C5DCD845243AC4E2002481E7 /* OptionalBox.swift */,
+			);
+			path = Box;
+			sourceTree = "<group>";
+		};
+		C5DCD83C243AC445002481E7 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				C5DCD83F243AC4C2002481E7 /* Property.swift */,
+				C5DCD83D243AC4B1002481E7 /* Wrapper.swift */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		C5DCD847243AC4EB002481E7 /* Boxable */ = {
+			isa = PBXGroup;
+			children = (
+				C5DCD848243AC4F2002481E7 /* Boxable.swift */,
+				C5DCD84A243AC4F8002481E7 /* NSNumber+Boxable.swift */,
+			);
+			path = Boxable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,10 +276,11 @@
 				TargetAttributes = {
 					C52A633222F71EB900A0F7BA = {
 						CreatedOnToolsVersion = 10.2.1;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1140;
 					};
 					C52A633B22F71EB900A0F7BA = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1140;
 					};
 					C52A635322F71F7800A0F7BA = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -296,7 +339,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C52A636822F71FD200A0F7BA /* RIWrapper.swift in Sources */,
+				C5DCD84B243AC4F8002481E7 /* NSNumber+Boxable.swift in Sources */,
+				C5DCD842243AC4D0002481E7 /* Box.swift in Sources */,
+				C5DCD844243AC4DD002481E7 /* DefaultBox.swift in Sources */,
+				C5DCD840243AC4C2002481E7 /* Property.swift in Sources */,
+				C5DCD846243AC4E2002481E7 /* OptionalBox.swift in Sources */,
+				C5DCD83E243AC4B1002481E7 /* Wrapper.swift in Sources */,
+				C5DCD849243AC4F2002481E7 /* Boxable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C52A634222F71EB900A0F7BA /* RIWrapperTests.swift in Sources */,
+				C5DCD84D243AC665002481E7 /* BoxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +577,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHWT4HF657;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/RIWrapperTests/Info.plist";
@@ -538,6 +588,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketinsights.RIWrapperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -547,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHWT4HF657;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/RIWrapperTests/Info.plist";

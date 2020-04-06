@@ -1,6 +1,6 @@
 //
-//  RIWrapperTests.swift
-//  RIWrapperTests
+//  Box.swift
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,28 +23,42 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import XCTest
-@testable import RIWrapper
+import Foundation
 
-class RIWrapperTests: XCTestCase {
+@propertyWrapper
+public class Box<WrappedType, BoxedType, ValueType>: Property<WrappedType> where ValueType: Boxable, BoxedType == ValueType.BoxedType {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let keyPath: KeyPath<WrappedType, BoxedType>
+
+    public init(_ keyPath: KeyPath<WrappedType, BoxedType>) {
+        self.keyPath = keyPath
+        super.init()
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    public var wrappedValue: ValueType {
+        get {
+            owner.unbox(from: keyPath)
+        }
+    }
+}
+
+@propertyWrapper
+public class MutableBox<WrappedType, BoxedType, ValueType>: Property<WrappedType> where ValueType: Boxable, BoxedType == ValueType.BoxedType {
+
+    let keyPath: WritableKeyPath<WrappedType, BoxedType>
+
+    public init(_ keyPath: WritableKeyPath<WrappedType, BoxedType>) {
+        self.keyPath = keyPath
+        super.init()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    public var wrappedValue: ValueType {
+        get {
+            owner.unbox(from: keyPath)
+        }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        set {
+            owner.box(newValue, to: keyPath)
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RIWrapper.swift
+//  OptionalBox.swift
 //  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -25,7 +25,40 @@
 
 import Foundation
 
-public struct RIWrapper {
+@propertyWrapper
+public class OptionalBox<WrappedType, BoxedType, ValueType>: Property<WrappedType> where ValueType: Boxable, BoxedType == ValueType.BoxedType {
 
-    public static let text = "Hello, world"
+    let keyPath: KeyPath<WrappedType, BoxedType?>
+
+    public init(_ keyPath: KeyPath<WrappedType, BoxedType?>) {
+        self.keyPath = keyPath
+        super.init()
+    }
+
+    public var wrappedValue: ValueType? {
+        get {
+            owner.unbox(from: keyPath)
+        }
+    }
+}
+
+@propertyWrapper
+public class MutableOptionalBox<WrappedType, BoxedType, ValueType>: Property<WrappedType> where ValueType: Boxable, BoxedType == ValueType.BoxedType {
+
+    let keyPath: WritableKeyPath<WrappedType, BoxedType?>
+
+    public init(_ keyPath: WritableKeyPath<WrappedType, BoxedType?>) {
+        self.keyPath = keyPath
+        super.init()
+    }
+
+    public var wrappedValue: ValueType? {
+        get {
+            owner.unbox(from: keyPath)
+        }
+
+        set {
+            owner.box(newValue, to: keyPath)
+        }
+    }
 }
