@@ -28,7 +28,7 @@ import Foundation
 @propertyWrapper
 public class Redirect<WrappedType, ValueType>: Map<WrappedType, ValueType, ValueType> {
 
-    public init(from keyPath: KeyPath<WrappedType, ValueType>) {
+    public init(_ keyPath: KeyPath<WrappedType, ValueType>) {
         super.init(from: keyPath, using: { $0 })
     }
 
@@ -42,7 +42,7 @@ public class Redirect<WrappedType, ValueType>: Map<WrappedType, ValueType, Value
 @propertyWrapper
 public class MutableRedirect<WrappedType, ValueType>: MutableMap<WrappedType, ValueType, ValueType> {
 
-    public init(from keyPath: WritableKeyPath<WrappedType, ValueType>) {
+    public init(_ keyPath: WritableKeyPath<WrappedType, ValueType>) {
         super.init(from: keyPath, get: { $0 }, set: { $0 })
     }
 
