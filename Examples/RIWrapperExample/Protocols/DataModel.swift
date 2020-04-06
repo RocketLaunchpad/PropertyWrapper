@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  DataModel.swift
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,13 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import RIWrapper
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+protocol DataModel {
 
-    @IBOutlet var label: UILabel!
+    var isEnabled: Bool { get set }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var averageScore: Double { get }
+
+    var children: [ChildModel] { get }
 }
-

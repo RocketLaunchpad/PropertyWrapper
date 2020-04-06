@@ -28,6 +28,18 @@
 		C66B984A243B7CAC00B8C7B7 /* APIMisuseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B9849243B7CAC00B8C7B7 /* APIMisuseTests.swift */; };
 		C66B984E243B8B5C00B8C7B7 /* RedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B984D243B8B5C00B8C7B7 /* RedirectTests.swift */; };
 		C66B9850243B8C2B00B8C7B7 /* BoxableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B984F243B8C2B00B8C7B7 /* BoxableTests.swift */; };
+		C66B9853243B8DAA00B8C7B7 /* XYZDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C66B9851243B8DAA00B8C7B7 /* XYZDataModel.h */; };
+		C66B9857243B8E3500B8C7B7 /* XYZChildModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C66B9855243B8E3500B8C7B7 /* XYZChildModel.h */; };
+		C66B9864243B900A00B8C7B7 /* RIWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A633322F71EB900A0F7BA /* RIWrapper.framework */; };
+		C66B9865243B900A00B8C7B7 /* RIWrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C52A633322F71EB900A0F7BA /* RIWrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C66B9869243B904900B8C7B7 /* XYZChildModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C66B9856243B8E3500B8C7B7 /* XYZChildModel.m */; };
+		C66B986A243B904900B8C7B7 /* XYZDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C66B9852243B8DAA00B8C7B7 /* XYZDataModel.m */; };
+		C66B986B243B904D00B8C7B7 /* ChildModelAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B9861243B8FFB00B8C7B7 /* ChildModelAdapter.swift */; };
+		C66B986C243B904D00B8C7B7 /* ChildModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B985E243B8FDA00B8C7B7 /* ChildModel.swift */; };
+		C66B986D243B904D00B8C7B7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B985C243B8F5D00B8C7B7 /* DataModel.swift */; };
+		C66B986F243B916000B8C7B7 /* DataModelAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B986E243B916000B8C7B7 /* DataModelAdapter.swift */; };
+		C66B9872243B92D800B8C7B7 /* ManualChildModelAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B9871243B92D800B8C7B7 /* ManualChildModelAdapter.swift */; };
+		C66B9874243B937000B8C7B7 /* ManualDataModelAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B9873243B937000B8C7B7 /* ManualDataModelAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +50,28 @@
 			remoteGlobalIDString = C52A633222F71EB900A0F7BA;
 			remoteInfo = RIWrapper;
 		};
+		C66B9866243B900A00B8C7B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C52A632A22F71EB900A0F7BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C52A633222F71EB900A0F7BA;
+			remoteInfo = RIWrapper;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C66B9868243B900A00B8C7B7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C66B9865243B900A00B8C7B7 /* RIWrapper.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C52A633322F71EB900A0F7BA /* RIWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RIWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +100,17 @@
 		C66B9849243B7CAC00B8C7B7 /* APIMisuseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMisuseTests.swift; sourceTree = "<group>"; };
 		C66B984D243B8B5C00B8C7B7 /* RedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectTests.swift; sourceTree = "<group>"; };
 		C66B984F243B8C2B00B8C7B7 /* BoxableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxableTests.swift; sourceTree = "<group>"; };
+		C66B9851243B8DAA00B8C7B7 /* XYZDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZDataModel.h; sourceTree = "<group>"; };
+		C66B9852243B8DAA00B8C7B7 /* XYZDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZDataModel.m; sourceTree = "<group>"; };
+		C66B9855243B8E3500B8C7B7 /* XYZChildModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZChildModel.h; sourceTree = "<group>"; };
+		C66B9856243B8E3500B8C7B7 /* XYZChildModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZChildModel.m; sourceTree = "<group>"; };
+		C66B9859243B8EDC00B8C7B7 /* RIWrapperExample-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RIWrapperExample-BridgingHeader.h"; sourceTree = "<group>"; };
+		C66B985C243B8F5D00B8C7B7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		C66B985E243B8FDA00B8C7B7 /* ChildModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildModel.swift; sourceTree = "<group>"; };
+		C66B9861243B8FFB00B8C7B7 /* ChildModelAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildModelAdapter.swift; sourceTree = "<group>"; };
+		C66B986E243B916000B8C7B7 /* DataModelAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelAdapter.swift; sourceTree = "<group>"; };
+		C66B9871243B92D800B8C7B7 /* ManualChildModelAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualChildModelAdapter.swift; sourceTree = "<group>"; };
+		C66B9873243B937000B8C7B7 /* ManualDataModelAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualDataModelAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,19 +133,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66B9864243B900A00B8C7B7 /* RIWrapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7739DC5A4037647795B2ADFA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		C52A632922F71EB900A0F7BA = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +147,7 @@
 				C52A634F22F71F4200A0F7BA /* Tests */,
 				C52A636622F71F7E00A0F7BA /* Examples */,
 				C52A633422F71EB900A0F7BA /* Products */,
-				7739DC5A4037647795B2ADFA /* Pods */,
+				C66B9863243B900A00B8C7B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,11 +207,16 @@
 			isa = PBXGroup;
 			children = (
 				C52A635622F71F7800A0F7BA /* AppDelegate.swift */,
-				C52A635822F71F7800A0F7BA /* ViewController.swift */,
-				C52A635A22F71F7800A0F7BA /* Main.storyboard */,
 				C52A635D22F71F7900A0F7BA /* Assets.xcassets */,
-				C52A635F22F71F7900A0F7BA /* LaunchScreen.storyboard */,
 				C52A636222F71F7900A0F7BA /* Info.plist */,
+				C52A635F22F71F7900A0F7BA /* LaunchScreen.storyboard */,
+				C52A635A22F71F7800A0F7BA /* Main.storyboard */,
+				C52A635822F71F7800A0F7BA /* ViewController.swift */,
+				C66B9870243B92CC00B8C7B7 /* ManualAdapters */,
+				C66B9860243B8FE500B8C7B7 /* Adapters */,
+				C66B985B243B8F4500B8C7B7 /* Protocols */,
+				C66B985A243B8F3900B8C7B7 /* Objective-C */,
+				C66B9859243B8EDC00B8C7B7 /* RIWrapperExample-BridgingHeader.h */,
 			);
 			path = RIWrapperExample;
 			sourceTree = "<group>";
@@ -223,6 +266,51 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		C66B985A243B8F3900B8C7B7 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				C66B9855243B8E3500B8C7B7 /* XYZChildModel.h */,
+				C66B9856243B8E3500B8C7B7 /* XYZChildModel.m */,
+				C66B9851243B8DAA00B8C7B7 /* XYZDataModel.h */,
+				C66B9852243B8DAA00B8C7B7 /* XYZDataModel.m */,
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
+		C66B985B243B8F4500B8C7B7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C66B985E243B8FDA00B8C7B7 /* ChildModel.swift */,
+				C66B985C243B8F5D00B8C7B7 /* DataModel.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C66B9860243B8FE500B8C7B7 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				C66B9861243B8FFB00B8C7B7 /* ChildModelAdapter.swift */,
+				C66B986E243B916000B8C7B7 /* DataModelAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		C66B9863243B900A00B8C7B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C66B9870243B92CC00B8C7B7 /* ManualAdapters */ = {
+			isa = PBXGroup;
+			children = (
+				C66B9871243B92D800B8C7B7 /* ManualChildModelAdapter.swift */,
+				C66B9873243B937000B8C7B7 /* ManualDataModelAdapter.swift */,
+			);
+			path = ManualAdapters;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -230,7 +318,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66B9853243B8DAA00B8C7B7 /* XYZDataModel.h in Headers */,
 				C52A634422F71EB900A0F7BA /* RIWrapper.h in Headers */,
+				C66B9857243B8E3500B8C7B7 /* XYZChildModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,10 +370,12 @@
 				C52A635022F71F7800A0F7BA /* Sources */,
 				C52A635122F71F7800A0F7BA /* Frameworks */,
 				C52A635222F71F7800A0F7BA /* Resources */,
+				C66B9868243B900A00B8C7B7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C66B9867243B900A00B8C7B7 /* PBXTargetDependency */,
 			);
 			name = RIWrapperExample;
 			productName = RIWrapperExample;
@@ -393,8 +485,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66B986D243B904D00B8C7B7 /* DataModel.swift in Sources */,
+				C66B986C243B904D00B8C7B7 /* ChildModel.swift in Sources */,
 				C52A635922F71F7800A0F7BA /* ViewController.swift in Sources */,
+				C66B9874243B937000B8C7B7 /* ManualDataModelAdapter.swift in Sources */,
+				C66B9872243B92D800B8C7B7 /* ManualChildModelAdapter.swift in Sources */,
 				C52A635722F71F7800A0F7BA /* AppDelegate.swift in Sources */,
+				C66B986B243B904D00B8C7B7 /* ChildModelAdapter.swift in Sources */,
+				C66B986F243B916000B8C7B7 /* DataModelAdapter.swift in Sources */,
+				C66B9869243B904900B8C7B7 /* XYZChildModel.m in Sources */,
+				C66B986A243B904900B8C7B7 /* XYZDataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +505,11 @@
 			isa = PBXTargetDependency;
 			target = C52A633222F71EB900A0F7BA /* RIWrapper */;
 			targetProxy = C52A633E22F71EB900A0F7BA /* PBXContainerItemProxy */;
+		};
+		C66B9867243B900A00B8C7B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C52A633222F71EB900A0F7BA /* RIWrapper */;
+			targetProxy = C66B9866243B900A00B8C7B7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -660,6 +765,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketinsights.RIWrapperExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Examples/RIWrapperExample/RIWrapperExample-BridgingHeader.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -679,6 +785,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketinsights.RIWrapperExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Examples/RIWrapperExample/RIWrapperExample-BridgingHeader.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

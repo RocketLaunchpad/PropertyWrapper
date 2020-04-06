@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  RIWrapperExample-BridgingHeader.h
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,5 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import RIWrapper
-import UIKit
-
-class ViewController: UIViewController {
-
-    @IBOutlet var label: UILabel!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
-
+#import "XYZChildModel.h"
+#import "XYZDataModel.h"

@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  ChildModelAdapter.swift
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,32 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+import Foundation
 import RIWrapper
-import UIKit
 
-class ViewController: UIViewController {
+class ChildModelAdapter: Wrapper<XYZChildModel>, ChildModel {
 
-    @IBOutlet var label: UILabel!
+    @MutableRedirect(\XYZChildModel.name)
+    var name: String?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    @MutableMap(from: \XYZChildModel.birthdayTimeIntervalSince1970,
+                get: { number in number.map { Date(timeIntervalSince1970: $0.doubleValue) } },
+                set: { date in date.map { NSNumber(value: $0.timeIntervalSince1970) } })
+    var birthday: Date?
 }
 
+extension ChildModelAdapter {
+
+    static func from(array: [Any]?) -> [ChildModelAdapter] {
+        guard let array = array else {
+            return []
+        }
+
+        return array.compactMap { obj in
+            guard let child = obj as? XYZChildModel else {
+                return nil
+            }
+            return ChildModelAdapter(wrapping: child)
+        }
+    }
+}

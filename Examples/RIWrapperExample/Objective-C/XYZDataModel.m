@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  XYZDataModel.m
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,8 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import RIWrapper
-import UIKit
+#import "XYZDataModel.h"
 
-class ViewController: UIViewController {
+@implementation XYZDataModel
 
-    @IBOutlet var label: UILabel!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
-
+@end

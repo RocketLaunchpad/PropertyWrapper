@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  ChildModel.swift
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,11 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import RIWrapper
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+protocol ChildModel {
 
-    @IBOutlet var label: UILabel!
+    var name: String? { get set }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var birthday: Date? { get set }
 }
-

@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  XYZChildModel.h
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,17 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import RIWrapper
-import UIKit
+#import <Foundation/Foundation.h>
 
-class ViewController: UIViewController {
+NS_ASSUME_NONNULL_BEGIN
 
-    @IBOutlet var label: UILabel!
+@interface XYZChildModel : NSObject
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
+@property (nullable) NSString *name;
 
+// Integer
+@property (nullable) NSNumber *birthdayTimeIntervalSince1970;
+
+@end
+
+NS_ASSUME_NONNULL_END

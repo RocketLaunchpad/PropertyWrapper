@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  ManualDataModelAdapter.swift
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,40 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import RIWrapper
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+class ManualDataModelAdapter: DataModel {
 
-    @IBOutlet var label: UILabel!
+    private let model: XYZDataModel
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(model: XYZDataModel) {
+        self.model = model
+    }
+
+    var isEnabled: Bool {
+        get {
+            return model.isEnabled?.boolValue ?? false
+        }
+
+        set {
+            model.isEnabled = NSNumber(value: newValue)
+        }
+    }
+
+    var averageScore: Double {
+        return model.averageScore?.doubleValue ?? 0
+    }
+
+    var children: [ChildModel] {
+        guard let array = model.children else {
+            return []
+        }
+
+        return array.compactMap { obj in
+            guard let child = obj as? XYZChildModel else {
+                return nil
+            }
+            return ManualChildModelAdapter(model: child)
+        }
     }
 }
-

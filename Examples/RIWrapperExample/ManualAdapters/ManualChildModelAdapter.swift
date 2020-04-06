@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  ManualChildModelAdapter.swift
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,40 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import RIWrapper
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+class ManualChildModelAdapter: ChildModel {
 
-    @IBOutlet var label: UILabel!
+    private let model: XYZChildModel
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(model: XYZChildModel) {
+        self.model = model
+    }
+
+    var name: String? {
+        get {
+            return model.name
+        }
+
+        set {
+            model.name = newValue
+        }
+    }
+
+    var birthday: Date? {
+        get {
+            guard let interval = model.birthdayTimeIntervalSince1970?.doubleValue else {
+                return nil
+            }
+            return Date(timeIntervalSince1970: interval)
+        }
+
+        set {
+            guard let interval = newValue?.timeIntervalSince1970 else {
+                model.birthdayTimeIntervalSince1970 = nil
+                return
+            }
+            model.birthdayTimeIntervalSince1970 = NSNumber(value: interval)
+        }
     }
 }
-

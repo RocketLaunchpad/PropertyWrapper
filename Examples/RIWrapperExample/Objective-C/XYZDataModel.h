@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  XYZDataModel.h
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,21 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import RIWrapper
-import UIKit
+#import <Foundation/Foundation.h>
 
-class ViewController: UIViewController {
+NS_ASSUME_NONNULL_BEGIN
 
-    @IBOutlet var label: UILabel!
+@interface XYZDataModel : NSObject
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
+// Boolean
+@property (nullable) NSNumber *isEnabled;
 
+// Double
+@property (nullable) NSNumber *averageScore;
+
+// Array of XYZChildModel
+@property (nullable) NSArray *children;
+
+@end
+
+NS_ASSUME_NONNULL_END

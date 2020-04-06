@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  RIWrapperExample
+//  DataModelAdapter.swift
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,15 +23,17 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+import Foundation
 import RIWrapper
-import UIKit
 
-class ViewController: UIViewController {
+class DataModelAdapter: Wrapper<XYZDataModel>, DataModel {
 
-    @IBOutlet var label: UILabel!
+    @MutableDefaultBox(\XYZDataModel.isEnabled, default: false)
+    var isEnabled: Bool
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    @DefaultBox(\XYZDataModel.averageScore, default: 0)
+    var averageScore: Double
+
+    @Map(from: \XYZDataModel.children, using: { ChildModelAdapter.from(array: $0) })
+    var children: [ChildModel]
 }
-
