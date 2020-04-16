@@ -1,6 +1,7 @@
 // swift-tools-version:5.2
 //
-//  Package.swift RIWrapper
+//  Package.swift
+//  RIWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
