@@ -66,7 +66,7 @@ open class Property<WrappedType>: PropertyMarker {
         }
     }
 
-    init(file: StaticString, line: UInt) {
+    public init(file: StaticString, line: UInt) {
         self.file = file
         self.line = line
     }
