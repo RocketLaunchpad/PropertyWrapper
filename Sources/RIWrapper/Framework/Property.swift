@@ -44,7 +44,7 @@ extension PropertyMarker {
     }
 }
 
-public class Property<WrappedType>: PropertyMarker {
+open class Property<WrappedType>: PropertyMarker {
 
     let file: StaticString
 
