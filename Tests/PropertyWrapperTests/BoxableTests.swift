@@ -1,7 +1,6 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
-//  PropertyWrapper
+//  BoxableTests.swift
+//  PropertyWrapperTests
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -24,23 +23,29 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+import PropertyWrapper
+import XCTest
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+class BoxableTests: XCTestCase {
+
+    private func verify<T>(_ value: T, file: StaticString = #file, line: UInt = #line) where T: Boxable, T: Equatable {
+        let unboxed = T.unbox(from: value.box())
+        XCTAssertEqual(value, unboxed, file: file, line: line)
+    }
+
+    func testBoxable() {
+        verify(Bool(true))
+        verify(Double(1))
+        verify(Float(2))
+        verify(Int(3))
+        verify(Int8(4))
+        verify(Int16(5))
+        verify(Int32(6))
+        verify(Int64(7))
+        verify(UInt(8))
+        verify(UInt8(9))
+        verify(UInt16(10))
+        verify(UInt32(11))
+        verify(UInt64(12))
+    }
+}

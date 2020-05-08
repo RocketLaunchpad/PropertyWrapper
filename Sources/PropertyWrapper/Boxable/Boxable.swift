@@ -1,6 +1,5 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
+//  Boxable.swift
 //  PropertyWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -24,23 +23,13 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+public protocol Boxable {
+
+    associatedtype BoxedType
+
+    func box() -> BoxedType
+
+    static func unbox(from box: BoxedType) -> Self
+}

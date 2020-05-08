@@ -1,7 +1,6 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
-//  PropertyWrapper
+//  PropertyWrapperExample-BridgingHeader.h
+//  PropertyWrapperExample
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -24,23 +23,5 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
-
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+#import "XYZChildModel.h"
+#import "XYZDataModel.h"

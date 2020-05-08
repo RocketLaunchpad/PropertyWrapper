@@ -1,7 +1,6 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
-//  PropertyWrapper
+//  ChildModelAdapter.swift
+//  PropertyWrapperExample
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -24,23 +23,33 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+import Foundation
+import PropertyWrapper
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+/// This is an example of a `ChildModel` adapter using the `PropertyWrapper` library. Compare to `ManualChildModelAdapter`.
+class ChildModelAdapter: Wrapper<XYZChildModel>, ChildModel {
+
+    @MutableRedirect(\XYZChildModel.name)
+    var name: String?
+
+    @MutableMap(from: \XYZChildModel.birthdayTimeIntervalSince1970,
+                get: { number in number.map { Date(timeIntervalSince1970: $0.doubleValue) } },
+                set: { date in date.map { NSNumber(value: $0.timeIntervalSince1970) } })
+    var birthday: Date?
+}
+
+extension ChildModelAdapter {
+
+    static func from(array: [Any]?) -> [ChildModelAdapter] {
+        guard let array = array else {
+            return []
+        }
+
+        return array.compactMap { obj in
+            guard let child = obj as? XYZChildModel else {
+                return nil
+            }
+            return ChildModelAdapter(wrapping: child)
+        }
+    }
+}

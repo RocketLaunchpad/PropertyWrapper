@@ -1,7 +1,6 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
-//  PropertyWrapper
+//  RedirectTests.swift
+//  PropertyWrapperTests
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -24,23 +23,44 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+import PropertyWrapper
+import XCTest
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+class RedirectTests: XCTestCase {
+
+    class TestClass {
+        let immutableInt: Int
+        var mutableInt: Int
+
+        init(int: Int) {
+            immutableInt = int
+            mutableInt = int
+        }
+    }
+
+    class TestWrapper: Wrapper<TestClass> {
+        @Redirect(\TestClass.immutableInt)
+        var immutableInt: Int
+
+        @MutableRedirect(\TestClass.mutableInt)
+        var mutableInt: Int
+    }
+
+    func testRedirect() {
+        let wrapped = TestClass(int: 42)
+        let wrapper = TestWrapper(wrapping: wrapped)
+
+        XCTAssertEqual(42, wrapper.immutableInt)
+        XCTAssertEqual(42, wrapper.mutableInt)
+
+        wrapper.mutableInt = 88
+
+        XCTAssertEqual(42, wrapper.immutableInt)
+        XCTAssertEqual(88, wrapper.mutableInt)
+
+        XCTAssertEqual(42, wrapped.immutableInt)
+        XCTAssertEqual(88, wrapped.mutableInt)
+
+    }
+
+}

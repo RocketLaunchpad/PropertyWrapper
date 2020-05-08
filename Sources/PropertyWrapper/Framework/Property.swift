@@ -1,6 +1,5 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
+//  Property.swift
 //  PropertyWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -24,23 +23,51 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+// This is used by Wrapper to determine, without associated or parameterized types, whether an object is a Property.
+internal protocol PropertyMarker {
+
+    var file: StaticString { get }
+
+    var line: UInt { get }
+}
+
+extension PropertyMarker {
+
+    public var typeDescription: String {
+        "@\(type(of: self))"
+    }
+
+    public var usageLocation: String {
+        "\(file):\(line)"
+    }
+}
+
+open class Property<WrappedType>: PropertyMarker {
+
+    let file: StaticString
+
+    let line: UInt
+
+    private unowned var _owner: Wrapper<WrappedType>? = nil
+
+    public var owner: Wrapper<WrappedType> {
+        get {
+            guard let o = _owner else {
+                // This will occur if this Property was used in a class that does not extend Wrapper.
+                fatalError("API MISUSE: The property wrapper \(typeDescription) used at \(usageLocation) is not in a subclass of Wrapper.")
+            }
+            return o
+        }
+
+        set {
+            _owner = newValue
+        }
+    }
+
+    public init(file: StaticString, line: UInt) {
+        self.file = file
+        self.line = line
+    }
+}

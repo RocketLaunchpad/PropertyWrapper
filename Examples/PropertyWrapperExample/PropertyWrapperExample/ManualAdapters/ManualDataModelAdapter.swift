@@ -1,7 +1,6 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
-//  PropertyWrapper
+//  ManualDataModelAdapter.swift
+//  PropertyWrapperExample
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -24,23 +23,41 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+/// This is an example of a `DataModel` adapter without using the `PropertyWrapper` library.
+class ManualDataModelAdapter: DataModel {
+
+    private let model: XYZDataModel
+
+    init(model: XYZDataModel) {
+        self.model = model
+    }
+
+    var isEnabled: Bool {
+        get {
+            return model.isEnabled?.boolValue ?? false
+        }
+
+        set {
+            model.isEnabled = NSNumber(value: newValue)
+        }
+    }
+
+    var averageScore: Double {
+        return model.averageScore?.doubleValue ?? 0
+    }
+
+    var children: [ChildModel] {
+        guard let array = model.children else {
+            return []
+        }
+
+        return array.compactMap { obj in
+            guard let child = obj as? XYZChildModel else {
+                return nil
+            }
+            return ManualChildModelAdapter(model: child)
+        }
+    }
+}

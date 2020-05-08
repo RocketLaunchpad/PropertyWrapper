@@ -1,6 +1,5 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
+//  Redirect.swift
 //  PropertyWrapper
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -24,23 +23,36 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+@propertyWrapper
+public class Redirect<WrappedType, ValueType>: Map<WrappedType, ValueType, ValueType> {
+
+    public init(_ keyPath: KeyPath<WrappedType, ValueType>, _file: StaticString = #file, _line: UInt = #line) {
+        super.init(from: keyPath, using: { $0 }, _file: _file, _line: _line)
+    }
+
+    public override var wrappedValue: ValueType {
+        get {
+            super.wrappedValue
+        }
+    }
+}
+
+@propertyWrapper
+public class MutableRedirect<WrappedType, ValueType>: MutableMap<WrappedType, ValueType, ValueType> {
+
+    public init(_ keyPath: WritableKeyPath<WrappedType, ValueType>, _file: StaticString = #file, _line: UInt = #line) {
+        super.init(from: keyPath, get: { $0 }, set: { $0 }, _file: _file, _line: _line)
+    }
+
+    public override var wrappedValue: ValueType {
+        get {
+            super.wrappedValue
+        }
+
+        set {
+            super.wrappedValue = newValue
+        }
+    }
+}

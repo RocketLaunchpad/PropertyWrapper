@@ -1,7 +1,6 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
-//  PropertyWrapper
+//  XYZDataModel.h
+//  PropertyWrapperExample
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -24,23 +23,24 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+#import <Foundation/Foundation.h>
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+NS_ASSUME_NONNULL_BEGIN
+
+/// This is an example Objective-C class that has an interface that is not Swift-friendly.
+@interface XYZDataModel : NSObject
+
+// Boolean
+@property (nullable) NSNumber *isEnabled;
+
+// Double
+@property (nullable) NSNumber *averageScore;
+
+// Array of XYZChildModel
+@property (nullable) NSArray *children;
+
++ (instancetype)buildExampleData;
+
+@end
+
+NS_ASSUME_NONNULL_END

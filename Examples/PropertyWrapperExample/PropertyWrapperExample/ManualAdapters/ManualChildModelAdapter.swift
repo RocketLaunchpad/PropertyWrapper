@@ -1,7 +1,6 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
-//  PropertyWrapper
+//  ManualChildModelAdapter.swift
+//  PropertyWrapperExample
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -24,23 +23,41 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+/// This is an example of a `ChildModel` adapter without using the `PropertyWrapper` library.
+class ManualChildModelAdapter: ChildModel {
+
+    private let model: XYZChildModel
+
+    init(model: XYZChildModel) {
+        self.model = model
+    }
+
+    var name: String? {
+        get {
+            return model.name
+        }
+
+        set {
+            model.name = newValue
+        }
+    }
+
+    var birthday: Date? {
+        get {
+            guard let interval = model.birthdayTimeIntervalSince1970?.doubleValue else {
+                return nil
+            }
+            return Date(timeIntervalSince1970: interval)
+        }
+
+        set {
+            guard let interval = newValue?.timeIntervalSince1970 else {
+                model.birthdayTimeIntervalSince1970 = nil
+                return
+            }
+            model.birthdayTimeIntervalSince1970 = NSNumber(value: interval)
+        }
+    }
+}

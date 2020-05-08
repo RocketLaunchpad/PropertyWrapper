@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="77t-GK-Swo">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PropertyWrapper Example-->
+        <scene sceneID="EHm-oO-RTe">
+            <objects>
+                <tableViewController id="vDq-xA-wbz" customClass="TableViewController" customModule="PropertyWrapperExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="CIS-1a-SMk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="vDq-xA-wbz" id="oEk-wp-ruD"/>
+                            <outlet property="delegate" destination="vDq-xA-wbz" id="I0J-nQ-9FH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="PropertyWrapper Example" id="IZO-8d-e55"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DkC-LU-60X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="147"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WT0-Uq-dMj">
+            <objects>
+                <navigationController id="77t-GK-Swo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Ld-h7-FW2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vDq-xA-wbz" kind="relationship" relationship="rootViewController" id="Io6-qp-DJ5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lP0-zl-UKF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-307" y="147"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,7 +1,6 @@
-// swift-tools-version:5.2
 //
-//  Package.swift
-//  PropertyWrapper
+//  XYZDataModel.m
+//  PropertyWrapperExample
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -24,23 +23,32 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import PackageDescription
+#import "XYZDataModel.h"
 
-let package = Package(
-    name: "PropertyWrapper",
-    products: [
-        .library(
-            name: "PropertyWrapper",
-            targets: ["PropertyWrapper"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "PropertyWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "PropertyWrapperTests",
-            dependencies: ["PropertyWrapper"]),
-    ]
-)
+#import "XYZChildModel.h"
+
+@implementation XYZDataModel
+
++ (instancetype)buildExampleData
+{
+    XYZChildModel *child1 = [XYZChildModel new];
+    child1.name = @"Moe";
+    child1.birthdayTimeIntervalSince1970 = @866692800.0; // 6/19/1997
+
+    XYZChildModel *child2 = [XYZChildModel new];
+    child2.name = @"Larry";
+    child2.birthdayTimeIntervalSince1970 = @1033790400.0; // 10/05/2002
+
+    XYZChildModel *child3 = [XYZChildModel new];
+    child3.name = @"Curly";
+    child3.birthdayTimeIntervalSince1970 = @1066795200.0; // 10/22/2003
+
+    XYZDataModel *parent = [XYZDataModel new];
+    parent.averageScore = @4.2;
+    parent.isEnabled = @YES;
+    parent.children = @[child1, child2, child3];
+
+    return parent;
+}
+
+@end

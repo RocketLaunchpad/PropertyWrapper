@@ -1,4 +1,4 @@
-# RIWrapper
+# PropertyWrapper
 
 This library facilitates the creation of wrapper objects used to adapt data model objects from one API to another.
 
@@ -160,12 +160,12 @@ class ManualChildModelAdapter: ChildModel {
 }
 ```
 
-## Using RIWrapper
+## Using PropertyWrapper
 
-The RIWrapper library uses property wrappers to eliminate most of the boilerplate code in the adapters shown above, allowing us to write something much more concise:
+The `PropertyWrapper` library uses property wrappers to eliminate most of the boilerplate code in the adapters shown above, allowing us to write something much more concise:
 
 ```swift
-import RIWrapper
+import PropertyWrapper
 
 class DataModelAdapter: Wrapper<XYZDataModel>, DataModel {
 
@@ -229,12 +229,4 @@ The library provides the following property wrappers to simplify the creation of
 These property wrappers can only be used on instances of the `Wrapper<WrappedType>` class.
 
 Each property wrapper takes a key path. This is used to extract a value from the wrapped object of type `WrappedType`. In the case of `Box` property wrappers, the key path refers to a box type that can be unboxed to a `Boxable` type. The underlying property must conform to the `Boxable` protocol, and its associated `Boxable.BoxedType` must match the box type. For `Map` property wrappers, the key path refers to a property of the wrapped object of type `WrappedType`. This is the input to the `using` and `get` blocks as well as the output of the `set` block.
-
-## Installation Instructions
-
-To install, add the following to your `Podfile`:
-
-```
-pod 'RIWrapper', :git => 'https://github.com/RocketLaunchpad/RIWrapper.git', :branch => 'master'
-```
 
